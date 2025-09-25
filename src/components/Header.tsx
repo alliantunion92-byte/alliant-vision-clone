@@ -110,10 +110,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-alliant-blue rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-alliant-green rounded-full opacity-80"></div>
-            </div>
-            <span className="text-2xl font-bold text-alliant-blue">ALLIANT</span>
+            <img src="/logo.png" alt="Alliant Credit Union" className="h-12" />
           </div>
 
           {/* Desktop Navigation */}
