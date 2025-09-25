@@ -27,6 +27,12 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        alliant: {
+          blue: "hsl(var(--alliant-blue))",
+          green: "hsl(var(--alliant-green))",
+          "light-blue": "hsl(var(--alliant-light-blue))",
+          "light-green": "hsl(var(--alliant-light-green))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -57,6 +63,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        "hero-gradient": "var(--hero-gradient)",
+        "hero-gradient-light": "var(--hero-gradient-light)",
       },
       borderRadius: {
         lg: "var(--radius)",
