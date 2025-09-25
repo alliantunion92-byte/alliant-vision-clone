@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Menu } from "lucide-react";
@@ -8,8 +9,27 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { cn } from "@/lib/utils";
+
+// Custom NavigationMenuTrigger without arrow
+const CustomNavigationMenuTrigger = React.forwardRef<
+  React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
+>(({ className, children, ...props }, ref) => (
+  <NavigationMenuPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </NavigationMenuPrimitive.Trigger>
+));
+CustomNavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -118,19 +138,19 @@ const Header = () => {
             <NavigationMenuList>
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.label}>
-                  <NavigationMenuTrigger className="text-foreground hover:text-alliant-blue font-medium">
+                  <CustomNavigationMenuTrigger className="text-foreground hover:text-alliant-blue font-medium bg-transparent border-none shadow-none data-[state=open]:bg-transparent data-[active]:bg-transparent">
                     {item.label}
-                  </NavigationMenuTrigger>
+                  </CustomNavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4">
+                    <div className="grid w-[300px] gap-1 p-6 bg-white border border-gray-200 shadow-lg rounded-lg">
                       {item.subItems.map((subItem) => (
                         <NavigationMenuLink
                           key={subItem.label}
                           href={subItem.href}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-none p-2 leading-none no-underline outline-none transition-colors hover:text-alliant-blue focus:text-alliant-blue"
                         >
-                          <div className="text-sm font-medium leading-none">{subItem.label}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                          <div className="text-sm font-medium leading-none text-gray-800">{subItem.label}</div>
+                          <p className="line-clamp-2 text-xs leading-snug text-gray-600">
                             {subItem.description}
                           </p>
                         </NavigationMenuLink>
