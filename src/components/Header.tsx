@@ -2,16 +2,69 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Menu } from "lucide-react";
 import { useState } from "react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: "Bank", href: "#" },
-    { label: "Borrow", href: "#" },
-    { label: "Invest", href: "#" },
-    { label: "Protect", href: "#" },
-    { label: "About", href: "#" },
+  const menuItems = [
+    {
+      label: "Bank",
+      href: "#",
+      subItems: [
+        { label: "High-Rate Savings", href: "#", description: "Earn 14x the bank national average" },
+        { label: "High-Rate Checking", href: "#", description: "No ATM fees, no overdraft fees" },
+        { label: "Certificates", href: "#", description: "Competitive rates on CDs" },
+        { label: "Online Banking", href: "#", description: "Bank anywhere, anytime" },
+        { label: "Mobile Banking", href: "#", description: "Full-featured mobile app" },
+      ]
+    },
+    {
+      label: "Borrow",
+      href: "#",
+      subItems: [
+        { label: "Home Equity Line of Credit", href: "#", description: "Borrow only what you need" },
+        { label: "Auto Loans", href: "#", description: "Great rates on new & used cars" },
+        { label: "Personal Loans", href: "#", description: "Fixed rates, no collateral required" },
+        { label: "Credit Cards", href: "#", description: "No annual fee, great rewards" },
+        { label: "Mortgages", href: "#", description: "Competitive home loan rates" },
+      ]
+    },
+    {
+      label: "Invest",
+      href: "#",
+      subItems: [
+        { label: "Investment Services", href: "#", description: "Professional investment guidance" },
+        { label: "Retirement Planning", href: "#", description: "IRAs and retirement accounts" },
+        { label: "Financial Planning", href: "#", description: "Personalized financial advice" },
+      ]
+    },
+    {
+      label: "Protect",
+      href: "#",
+      subItems: [
+        { label: "Insurance", href: "#", description: "Auto, home, and life insurance" },
+        { label: "Identity Protection", href: "#", description: "Comprehensive identity monitoring" },
+        { label: "Security", href: "#", description: "Fraud prevention and account security" },
+      ]
+    },
+    {
+      label: "About",
+      href: "#",
+      subItems: [
+        { label: "About Alliant", href: "#", description: "Our mission and values" },
+        { label: "Careers", href: "#", description: "Join our team" },
+        { label: "Contact Us", href: "#", description: "Get in touch" },
+        { label: "Locations", href: "#", description: "Find ATMs and branches" },
+      ]
+    },
   ];
 
   const topNavItems = [
@@ -64,17 +117,33 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-foreground hover:text-alliant-blue transition-colors font-medium"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+          <NavigationMenu className="hidden lg:flex">
+            <NavigationMenuList>
+              {menuItems.map((item) => (
+                <NavigationMenuItem key={item.label}>
+                  <NavigationMenuTrigger className="text-foreground hover:text-alliant-blue font-medium">
+                    {item.label}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[400px] gap-3 p-4">
+                      {item.subItems.map((subItem) => (
+                        <NavigationMenuLink
+                          key={subItem.label}
+                          href={subItem.href}
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">{subItem.label}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {subItem.description}
+                          </p>
+                        </NavigationMenuLink>
+                      ))}
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
 
           {/* Action Buttons */}
           <div className="flex items-center space-x-4">
@@ -101,14 +170,21 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t pt-4">
             <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-foreground hover:text-alliant-blue transition-colors font-medium"
-                >
-                  {item.label}
-                </a>
+              {menuItems.map((item) => (
+                <div key={item.label} className="space-y-2">
+                  <div className="text-foreground font-medium text-lg">{item.label}</div>
+                  <div className="pl-4 space-y-2">
+                    {item.subItems.map((subItem) => (
+                      <a
+                        key={subItem.label}
+                        href={subItem.href}
+                        className="block text-sm text-muted-foreground hover:text-alliant-blue transition-colors"
+                      >
+                        {subItem.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               ))}
               <div className="flex flex-col space-y-2 pt-4 border-t">
                 <Button variant="secondary" className="w-full">
