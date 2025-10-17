@@ -26,7 +26,7 @@ const ServicesSection = () => {
     {
       icon: Shield,
       title: "Fraud Prevention & Security",
-      description: "Alliant is committed to protecting your account with the latest security measures.",
+      description: "Avance Personal is committed to protecting your account with the latest security measures.",
       bgColor: "bg-green-50",
       iconColor: "text-alliant-green",
     },

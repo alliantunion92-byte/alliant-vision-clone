@@ -79,7 +79,7 @@ const Header = () => {
       label: "About",
       href: "#",
       subItems: [
-        { label: "About Alliant", href: "#", description: "Our mission and values" },
+        { label: "About Avance Personal", href: "#", description: "Our mission and values" },
         { label: "Careers", href: "#", description: "Join our team" },
         { label: "Contact Us", href: "#", description: "Get in touch" },
         { label: "Locations", href: "#", description: "Find ATMs and branches" },
@@ -130,7 +130,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Alliant Credit Union" className="h-12" />
+            <img src="/logo.png" alt="Avance Personal" className="h-12" />
           </div>
 
           {/* Desktop Navigation */}

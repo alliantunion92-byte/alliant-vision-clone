@@ -11,7 +11,7 @@ const PromotionSection = () => {
               <div className="w-8 h-8 bg-alliant-blue rounded-full flex items-center justify-center">
                 <div className="w-4 h-4 bg-alliant-green rounded-full opacity-80"></div>
               </div>
-              <span className="text-lg font-semibold text-alliant-blue">ALLIANT | SUZE ORMAN</span>
+              <span className="text-lg font-semibold text-alliant-blue">AVANCE PERSONAL | SUZE ORMAN</span>
             </div>
             
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -19,7 +19,7 @@ const PromotionSection = () => {
             </h2>
             
             <p className="text-muted-foreground mb-6">
-              Alliant has partnered with Suze Orman to offer a high-rate savings account and bonus for new members.
+              Avance Personal has partnered with Suze Orman to offer a high-rate savings account and bonus for new members.
             </p>
             
             <Button className="bg-alliant-blue hover:bg-alliant-blue/90 text-white">

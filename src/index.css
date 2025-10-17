@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Alliant Credit Union Design System - Financial & Modern */
+/* Avance Personal Design System - Financial & Modern */
 
 @layer base {
   :root {
@@ -15,11 +15,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 11% 15%;
 
-    /* Alliant Brand Colors */
-    --primary: 199 89% 48%;  /* Alliant Blue */
+    /* Avance Personal Brand Colors */
+    --primary: 199 89% 48%;  /* Avance Personal Blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 93 100% 39%;  /* Alliant Green */
+    --secondary: 93 100% 39%;  /* Avance Personal Green */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
@@ -35,7 +35,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 199 89% 48%;
 
-    /* Custom Alliant Variables */
+    /* Custom Avance Personal Variables */
     --alliant-blue: 199 89% 48%;
     --alliant-green: 93 100% 39%;
     --alliant-light-blue: 199 50% 85%;
